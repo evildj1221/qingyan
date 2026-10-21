@@ -55,7 +55,9 @@ function structured($: cheerio.CheerioAPI): Array<Record<string, unknown>> {
 }
 
 test("filtered feeds keep their exact content address but leave indexing to the public landing pages", async () => {
-  for (const base of ["/", "/all"]) for (const query of ["channel=news", "category=policy", "tag=碳市场", "channel=x&category=policy&tag=碳市场"]) {
+  // 规范地址会对非 ASCII 值做百分号编码，期望值同步编码后再比对。
+  for (const base of ["/", "/all"]) for (const raw of ["channel=news", "category=policy", "tag=碳市场", "channel=x&category=policy&tag=碳市场"]) {
+    const query = raw.replace("碳市场", encodeURIComponent("碳市场"));
     const $ = await page(`${base}?${query}&utm_source=fixture&anchorAt=old&deep=1`);
     assert.equal($("meta[name=robots]").attr("content"), "noindex, follow", `${base}?${query}`);
     assert.equal($("link[rel=canonical]").attr("href"), `${web.origin}${base}?${query}`);
