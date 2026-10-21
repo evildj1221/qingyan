@@ -306,21 +306,33 @@
       "name": "生态环境部",
       "group": "company",
       "entityId": "mee",
-      "definition": "生态环境部的全部动态：政策文件、环境标准、行政处罚、中央督察与新闻发布的持续追踪。"
+      "definition": "生态环境部的全部动态：政策文件、环境标准、行政处罚、中央督察与新闻发布的持续追踪。",
+      "aliases": [
+        "环境保护部",
+        "生态环境部"
+      ]
     },
     {
       "slug": "ndrc",
       "name": "国家发改委",
       "group": "company",
       "entityId": "ndrc",
-      "definition": "国家发改委的动态：双碳政策、节能降碳、循环经济、价格机制与绿色转型的持续追踪。"
+      "definition": "国家发改委的动态：双碳政策、节能降碳、循环经济、价格机制与绿色转型的持续追踪。",
+      "aliases": [
+        "国家发展改革委",
+        "国家发展和改革委员会"
+      ]
     },
     {
       "slug": "miit",
       "name": "工信部",
       "group": "company",
       "entityId": "miit",
-      "definition": "工信部（节能与综合利用司）的动态：绿色制造体系、能效标杆、工业节能与绿色工业的持续追踪。"
+      "definition": "工信部（节能与综合利用司）的动态：绿色制造体系、能效标杆、工业节能与绿色工业的持续追踪。",
+      "aliases": [
+        "工业和信息化部",
+        "工信部节能与综合利用司"
+      ]
     },
     {
       "slug": "cneeex",
@@ -328,6 +340,7 @@
       "group": "company",
       "entityId": "cneeex",
       "aliases": [
+        "上海环境能源交易所",
         "全国碳市场"
       ],
       "definition": "全国碳市场与上海环交所的动态：碳价、成交量、配额分配与履约安排的持续追踪。"
@@ -337,42 +350,62 @@
       "name": "中国环境监测总站",
       "group": "company",
       "entityId": "cnemc",
-      "definition": "中国环境监测总站的动态：环境质量状况、监测规范与监测数据发布的持续追踪。"
+      "definition": "中国环境监测总站的动态：环境质量状况、监测规范与监测数据发布的持续追踪。",
+      "aliases": [
+        "中国环境监测总站"
+      ]
     },
     {
       "slug": "guangda-env",
       "name": "光大环境",
       "group": "company",
       "entityId": "ceb-env",
-      "definition": "光大环境的动态：垃圾焚烧、环卫一体化项目的拓展与经营进展。"
+      "definition": "光大环境的动态：垃圾焚烧、环卫一体化项目的拓展与经营进展。",
+      "aliases": [
+        "中国光大环境",
+        "光大环保"
+      ]
     },
     {
       "slug": "beikong-water",
       "name": "北控水务",
       "group": "company",
       "entityId": "bewg",
-      "definition": "北控水务的动态：水环境治理、水务项目的拓展与经营进展。"
+      "definition": "北控水务的动态：水环境治理、水务项目的拓展与经营进展。",
+      "aliases": [
+        "北控水务集团"
+      ]
     },
     {
       "slug": "shouchuang-ep",
       "name": "首创环保",
       "group": "company",
       "entityId": "bc-ep",
-      "definition": "首创环保的动态：城镇水务、固废处理与综合环保服务的拓展和经营进展。"
+      "definition": "首创环保的动态：城镇水务、固废处理与综合环保服务的拓展和经营进展。",
+      "aliases": [
+        "北京首创生态环保集团",
+        "首创股份"
+      ]
     },
     {
       "slug": "hanlan-env",
       "name": "瀚蓝环境",
       "group": "company",
       "entityId": "hanlan",
-      "definition": "瀚蓝环境的动态：垃圾焚烧、能源与供排水业务的拓展和经营进展。"
+      "definition": "瀚蓝环境的动态：垃圾焚烧、能源与供排水业务的拓展和经营进展。",
+      "aliases": [
+        "瀚蓝"
+      ]
     },
     {
       "slug": "weiming-ep",
       "name": "伟明环保",
       "group": "company",
       "entityId": "weiming",
-      "definition": "伟明环保的动态：垃圾焚烧发电与新材料业务的拓展和经营进展。"
+      "definition": "伟明环保的动态：垃圾焚烧发电与新材料业务的拓展和经营进展。",
+      "aliases": [
+        "浙江伟明环保"
+      ]
     },
     {
       "slug": "carbon-market",
