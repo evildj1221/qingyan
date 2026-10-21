@@ -96,7 +96,7 @@ export const ENTITIES: Record<string, { name: string; displayTag: string | null;
   mem: { name: "应急管理部", displayTag: "应急管理部", aliases: ["应急管理部"] },
   cnemc: { name: "中国环境监测总站", displayTag: "中国环境监测总站", aliases: ["中国环境监测总站"] },
   cneeex: { name: "上海环交所", displayTag: "上海环交所", aliases: ["上海环交所", "上海环境能源交易所"], otherNames: ["全国碳排放权交易市场"] },
-  caepi: { name: "中国环保产业协会", displayTag: null, aliases: ["中国环保产业协会", "中国环境保护产业协会"] },
+  caepi: { name: "中国环保产业协会", displayTag: "中国环保产业协会", aliases: ["中国环保产业协会", "中国环境保护产业协会"] },
   cenenw: { name: "中国环境报", displayTag: "中国环境报", aliases: ["中国环境报", "中国环境网"] },
   "gd-sthjt": { name: "广东省生态环境厅", displayTag: "广东省生态环境厅", aliases: ["广东省生态环境厅", "广东省环境保护厅"] },
   "hun-sthjt": { name: "湖南省生态环境厅", displayTag: "湖南省生态环境厅", aliases: ["湖南省生态环境厅", "湖南省环境保护厅"] },
