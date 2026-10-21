@@ -1,0 +1,11 @@
+{
+  "name": "@aihot/feedback-notify",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^7.0.6"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^7.0.4"
+  }
+}

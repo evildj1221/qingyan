@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS feedback_notify_state (singleton boolean PRIMARY KEY DEFAULT true, last_feedback_id bigint NOT NULL DEFAULT 0, updated_at timestamptz NOT NULL DEFAULT now(), CONSTRAINT feedback_notify_state_single CHECK (singleton));

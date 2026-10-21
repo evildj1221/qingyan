@@ -1,0 +1,595 @@
+{
+  "$comment": "青砚信源：部委官网×4、广东省厅、福建省厅×2（web_list 直抓）+ 12 个微信公众号（极致了采集）。湖南/湖北/江西/上海/浙江的厅局官网是 JS 渲染，已用官微公众号替代覆盖。ghid 解析记录见仓库外《青砚信源规划.md》。 2026-10-14 增配：双碳（碳排放交易网/环交所）、应急（应急管理部）网站信源。",
+  "sources": [
+    {
+      "id": "mee-zcwj",
+      "name": "生态环境部·政策文件",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.mee.gov.cn/zcwj/",
+        "parseMode": "html",
+        "itemSelector": ".mobile_list li",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span.date",
+        "allowUrlPrefixes": [
+          "https://www.mee.gov.cn/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "mee",
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "官方",
+        "部委"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mee-xzcf",
+      "name": "生态环境部·行政处罚",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.mee.gov.cn/ywdt/bgt/xzcf/",
+        "parseMode": "html",
+        "itemSelector": ".mobile_list li",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span.date",
+        "allowUrlPrefixes": [
+          "https://www.mee.gov.cn/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "mee",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "处罚"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mee-dc",
+      "name": "生态环境部·中央督察",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.mee.gov.cn/ywgz/zysthjbhdc/",
+        "parseMode": "html",
+        "itemSelector": ".mobile_list li",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span.date",
+        "allowUrlPrefixes": [
+          "https://www.mee.gov.cn/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "mee",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "督察"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mee-gsgg",
+      "name": "生态环境部·公示公告",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.mee.gov.cn/ywdt/gsgg/",
+        "parseMode": "html",
+        "itemSelector": ".mobile_list li",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span.date",
+        "allowUrlPrefixes": [
+          "https://www.mee.gov.cn/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "mee",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "公示"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "gd-hbwj",
+      "name": "广东省生态环境厅·规范性文件",
+      "kind": "web_list",
+      "config": {
+        "url": "https://gdee.gd.gov.cn/hbwj/index.html",
+        "parseMode": "html",
+        "itemSelector": ".list_table",
+        "linkSelector": "a.titlelie",
+        "titleSelector": "a.titlelie",
+        "publishedAtSelector": "span.list-date",
+        "allowUrlPrefixes": [
+          "https://gdee.gd.gov.cn/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "gd-sthjt",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "广东"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "fj-flfg",
+      "name": "福建省生态环境厅·政策法规",
+      "kind": "web_list",
+      "config": {
+        "url": "https://sthjt.fujian.gov.cn/zwgk/flfg/",
+        "parseMode": "html",
+        "itemSelector": ".list_base li",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://sthjt.fujian.gov.cn/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "fj-sthjt",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "福建"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "fj-gsgg",
+      "name": "福建省生态环境厅·公示公告",
+      "kind": "web_list",
+      "config": {
+        "url": "https://sthjt.fujian.gov.cn/zwgk/gsgg/",
+        "parseMode": "html",
+        "itemSelector": ".list_base li",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://sthjt.fujian.gov.cn/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "fj-sthjt",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "福建",
+        "公示"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-mee",
+      "name": "生态环境部（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_5a5f51734c51",
+        "nickname": "生态环境部"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "官方",
+        "部委"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "mee"
+    },
+    {
+      "id": "mp-cnenw",
+      "name": "中国环境（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_52274a65081a",
+        "nickname": "中国环境"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "媒体",
+        "部主管"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "cenenw"
+    },
+    {
+      "id": "mp-hjgz",
+      "name": "环境经济杂志（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_150d016e8a44",
+        "nickname": "环境经济杂志"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "媒体",
+        "杂志"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      }
+    },
+    {
+      "id": "mp-gd",
+      "name": "广东生态环境（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_49e5c211308a",
+        "nickname": "广东生态环境"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "官方",
+        "广东"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "gd-sthjt"
+    },
+    {
+      "id": "mp-hun",
+      "name": "湖南生态环境（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_fa4a1dd60a5b",
+        "nickname": "湖南生态环境"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "官方",
+        "湖南"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "hun-sthjt"
+    },
+    {
+      "id": "mp-hubei",
+      "name": "湖北生态环境（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_0a048b28078b",
+        "nickname": "湖北生态环境"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "官方",
+        "湖北"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "hubei-sthjt"
+    },
+    {
+      "id": "mp-jx",
+      "name": "江西环境（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_21da94c1d3c9",
+        "nickname": "江西环境"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "官方",
+        "江西"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "jx-sthjt"
+    },
+    {
+      "id": "mp-sh",
+      "name": "上海环境（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_6e6d7428471a",
+        "nickname": "上海环境"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "官方",
+        "上海"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "sh-sthj"
+    },
+    {
+      "id": "mp-zj",
+      "name": "浙江生态环境（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_7587613739d4",
+        "nickname": "浙江生态环境"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "官方",
+        "浙江"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "zj-sthjt"
+    },
+    {
+      "id": "mp-fj",
+      "name": "福建生态环境（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_54ff8e2d8e90",
+        "nickname": "福建生态环境"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "官方",
+        "福建"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "fj-sthjt"
+    },
+    {
+      "id": "mp-miit",
+      "name": "工信微报（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_129ab604fe5d",
+        "nickname": "工信微报"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "官方",
+        "绿色制造"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "miit"
+    },
+    {
+      "id": "mp-ndrc",
+      "name": "国家发展改革委（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_bb11686e0930",
+        "nickname": "国家发展改革委"
+      },
+      "tier": "T1_5",
+      "participation_mode": "editorial",
+      "interval_minutes": 720,
+      "tags": [
+        "官方",
+        "双碳"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "_aihot": {
+        "initialBackfillLimit": 6
+      },
+      "owner_entity_id": "ndrc"
+    },
+    {
+      "id": "tpf-home",
+      "name": "中国碳排放交易网",
+      "kind": "web_list",
+      "config": {
+        "url": "http://www.tanpaifang.com/",
+        "parseMode": "html",
+        "itemSelector": "a[title]",
+        "linkSelector": "a[title]",
+        "titleSelector": "a[title]",
+        "allowUrlPrefixes": [
+          "http://www.tanpaifang.com/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "detail": {
+          "publishedAtSelector": ".post-time, .date, .time, meta[name='publishdate']"
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": "cneeex",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "碳市场",
+        "行业媒体"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "cneeex-news",
+      "name": "上海环交所·热点资讯",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.cneeex.com/xwzx/rdhd/",
+        "parseMode": "html",
+        "itemSelector": "a[href*='.shtml']",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "allowUrlPrefixes": [
+          "https://www.cneeex.com/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        },
+        "detail": {
+          "publishedAtSelector": ".news-time, .time, .date, .pubtime"
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "cneeex",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "碳市场"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mem-bndt",
+      "name": "应急管理部·部厅动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.mem.gov.cn/xw/bndt/",
+        "parseMode": "html",
+        "itemSelector": "li a[href*='.shtml']",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://www.mem.gov.cn/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "mem",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "应急"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mee-bz",
+      "name": "生态环境部·环境标准库",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.mee.gov.cn/ywgz/fgbz/bz/",
+        "parseMode": "html",
+        "itemSelector": "li a[href*='.shtml']",
+        "linkSelector": "a",
+        "titleSelector": "a",
+        "allowUrlPrefixes": [
+          "https://www.mee.gov.cn/ywgz/fgbz/bz/"
+        ],
+        "detail": {
+          "publishedAtSelector": "meta[name=PubDate]",
+          "maxFetches": 60
+        },
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "mee",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "标准"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    }
+  ]
+}

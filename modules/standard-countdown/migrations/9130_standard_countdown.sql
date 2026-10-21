@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS standard_countdown (stdno text PRIMARY KEY, title text NOT NULL, effective_date date NOT NULL, item_id text, source_name text, updated_at timestamptz NOT NULL DEFAULT now());

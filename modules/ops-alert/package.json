@@ -1,0 +1,8 @@
+{
+  "name": "@aihot/ops-alert",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^7.0.6"
+  }
+}

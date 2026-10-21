@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS ops_alert_state (singleton boolean PRIMARY KEY DEFAULT true, last_sent jsonb NOT NULL DEFAULT '{}'::jsonb, updated_at timestamptz NOT NULL DEFAULT now(), CONSTRAINT ops_alert_state_single CHECK (singleton));

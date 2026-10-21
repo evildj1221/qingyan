@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS digest_send_state (singleton boolean PRIMARY KEY DEFAULT true, last_key text NOT NULL DEFAULT '', sent_count integer NOT NULL DEFAULT 0, updated_at timestamptz NOT NULL DEFAULT now(), CONSTRAINT digest_send_state_single CHECK (singleton));

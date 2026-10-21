@@ -1,0 +1,585 @@
+{
+  "groups": [
+    {
+      "key": "province",
+      "name": "省份地区",
+      "blurb": "按省级行政区浏览当地的生态环境与双碳动态"
+    },
+    {
+      "key": "company",
+      "name": "机构与企业",
+      "blurb": "按部委、省市厅局与龙头企业追踪"
+    },
+    {
+      "key": "field",
+      "name": "领域方向",
+      "blurb": "按环境要素与业务领域深挖：双碳、固废、环评、绿色制造……"
+    },
+    {
+      "key": "genre",
+      "name": "内容形态",
+      "blurb": "按内容类型浏览：标准、处罚、名单、政策、解读……"
+    }
+  ],
+  "topics": [
+    {
+      "slug": "p-beijing",
+      "name": "北京",
+      "group": "province",
+      "tags": [
+        "北京"
+      ],
+      "definition": "北京市范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-tianjin",
+      "name": "天津",
+      "group": "province",
+      "tags": [
+        "天津"
+      ],
+      "definition": "天津市范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-hebei",
+      "name": "河北",
+      "group": "province",
+      "tags": [
+        "河北"
+      ],
+      "definition": "河北省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-shanxi",
+      "name": "山西",
+      "group": "province",
+      "tags": [
+        "山西"
+      ],
+      "definition": "山西省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-neimenggu",
+      "name": "内蒙古",
+      "group": "province",
+      "tags": [
+        "内蒙古"
+      ],
+      "definition": "内蒙古自治区范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-liaoning",
+      "name": "辽宁",
+      "group": "province",
+      "tags": [
+        "辽宁"
+      ],
+      "definition": "辽宁省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-jilin",
+      "name": "吉林",
+      "group": "province",
+      "tags": [
+        "吉林"
+      ],
+      "definition": "吉林省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-heilongjiang",
+      "name": "黑龙江",
+      "group": "province",
+      "tags": [
+        "黑龙江"
+      ],
+      "definition": "黑龙江省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-shanghai",
+      "name": "上海",
+      "group": "province",
+      "tags": [
+        "上海"
+      ],
+      "definition": "上海市范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-jiangsu",
+      "name": "江苏",
+      "group": "province",
+      "tags": [
+        "江苏"
+      ],
+      "definition": "江苏省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-zhejiang",
+      "name": "浙江",
+      "group": "province",
+      "tags": [
+        "浙江"
+      ],
+      "definition": "浙江省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-anhui",
+      "name": "安徽",
+      "group": "province",
+      "tags": [
+        "安徽"
+      ],
+      "definition": "安徽省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-fujian",
+      "name": "福建",
+      "group": "province",
+      "tags": [
+        "福建"
+      ],
+      "definition": "福建省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-jiangxi",
+      "name": "江西",
+      "group": "province",
+      "tags": [
+        "江西"
+      ],
+      "definition": "江西省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-shandong",
+      "name": "山东",
+      "group": "province",
+      "tags": [
+        "山东"
+      ],
+      "definition": "山东省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-henan",
+      "name": "河南",
+      "group": "province",
+      "tags": [
+        "河南"
+      ],
+      "definition": "河南省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-hubei",
+      "name": "湖北",
+      "group": "province",
+      "tags": [
+        "湖北"
+      ],
+      "definition": "湖北省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-hunan",
+      "name": "湖南",
+      "group": "province",
+      "tags": [
+        "湖南"
+      ],
+      "definition": "湖南省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-guangdong",
+      "name": "广东",
+      "group": "province",
+      "tags": [
+        "广东"
+      ],
+      "definition": "广东省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-guangxi",
+      "name": "广西",
+      "group": "province",
+      "tags": [
+        "广西"
+      ],
+      "definition": "广西壮族自治区范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-hainan",
+      "name": "海南",
+      "group": "province",
+      "tags": [
+        "海南"
+      ],
+      "definition": "海南省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-chongqing",
+      "name": "重庆",
+      "group": "province",
+      "tags": [
+        "重庆"
+      ],
+      "definition": "重庆市范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-sichuan",
+      "name": "四川",
+      "group": "province",
+      "tags": [
+        "四川"
+      ],
+      "definition": "四川省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-guizhou",
+      "name": "贵州",
+      "group": "province",
+      "tags": [
+        "贵州"
+      ],
+      "definition": "贵州省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-yunnan",
+      "name": "云南",
+      "group": "province",
+      "tags": [
+        "云南"
+      ],
+      "definition": "云南省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-xizang",
+      "name": "西藏",
+      "group": "province",
+      "tags": [
+        "西藏"
+      ],
+      "definition": "西藏自治区范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-shaanxi",
+      "name": "陕西",
+      "group": "province",
+      "tags": [
+        "陕西"
+      ],
+      "definition": "陕西省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-gansu",
+      "name": "甘肃",
+      "group": "province",
+      "tags": [
+        "甘肃"
+      ],
+      "definition": "甘肃省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-qinghai",
+      "name": "青海",
+      "group": "province",
+      "tags": [
+        "青海"
+      ],
+      "definition": "青海省范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-ningxia",
+      "name": "宁夏",
+      "group": "province",
+      "tags": [
+        "宁夏"
+      ],
+      "definition": "宁夏回族自治区范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "p-xinjiang",
+      "name": "新疆",
+      "group": "province",
+      "tags": [
+        "新疆"
+      ],
+      "definition": "新疆维吾尔自治区范围内的生态环境与双碳动态：省市两级生态环境部门发布、地方政策标准、执法处罚、绿色制造与名单公示。"
+    },
+    {
+      "slug": "mee",
+      "name": "生态环境部",
+      "group": "company",
+      "entityId": "mee",
+      "definition": "生态环境部的全部动态：政策文件、环境标准、行政处罚、中央督察与新闻发布的持续追踪。"
+    },
+    {
+      "slug": "ndrc",
+      "name": "国家发改委",
+      "group": "company",
+      "entityId": "ndrc",
+      "definition": "国家发改委的动态：双碳政策、节能降碳、循环经济、价格机制与绿色转型的持续追踪。"
+    },
+    {
+      "slug": "miit",
+      "name": "工信部",
+      "group": "company",
+      "entityId": "miit",
+      "definition": "工信部（节能与综合利用司）的动态：绿色制造体系、能效标杆、工业节能与绿色工业的持续追踪。"
+    },
+    {
+      "slug": "cneeex",
+      "name": "上海环交所",
+      "group": "company",
+      "entityId": "cneeex",
+      "aliases": [
+        "全国碳市场"
+      ],
+      "definition": "全国碳市场与上海环交所的动态：碳价、成交量、配额分配与履约安排的持续追踪。"
+    },
+    {
+      "slug": "cnemc",
+      "name": "中国环境监测总站",
+      "group": "company",
+      "entityId": "cnemc",
+      "definition": "中国环境监测总站的动态：环境质量状况、监测规范与监测数据发布的持续追踪。"
+    },
+    {
+      "slug": "guangda-env",
+      "name": "光大环境",
+      "group": "company",
+      "entityId": "ceb-env",
+      "definition": "光大环境的动态：垃圾焚烧、环卫一体化项目的拓展与经营进展。"
+    },
+    {
+      "slug": "beikong-water",
+      "name": "北控水务",
+      "group": "company",
+      "entityId": "bewg",
+      "definition": "北控水务的动态：水环境治理、水务项目的拓展与经营进展。"
+    },
+    {
+      "slug": "shouchuang-ep",
+      "name": "首创环保",
+      "group": "company",
+      "entityId": "bc-ep",
+      "definition": "首创环保的动态：城镇水务、固废处理与综合环保服务的拓展和经营进展。"
+    },
+    {
+      "slug": "hanlan-env",
+      "name": "瀚蓝环境",
+      "group": "company",
+      "entityId": "hanlan",
+      "definition": "瀚蓝环境的动态：垃圾焚烧、能源与供排水业务的拓展和经营进展。"
+    },
+    {
+      "slug": "weiming-ep",
+      "name": "伟明环保",
+      "group": "company",
+      "entityId": "weiming",
+      "definition": "伟明环保的动态：垃圾焚烧发电与新材料业务的拓展和经营进展。"
+    },
+    {
+      "slug": "carbon-market",
+      "name": "碳市场与CCER",
+      "group": "field",
+      "tags": [
+        "碳市场",
+        "CCER",
+        "碳价",
+        "配额与履约"
+      ],
+      "definition": "全国碳市场的一切：碳价与成交、配额分配方案、履约安排、CCER 重启与项目类型扩容。"
+    },
+    {
+      "slug": "dual-carbon-policy",
+      "name": "双碳政策",
+      "group": "field",
+      "tags": [
+        "双碳能源",
+        "能耗双控",
+        "绿电绿证"
+      ],
+      "definition": "碳达峰碳中和的政策脉络：能耗双控转碳排放双控、绿电绿证、能源转型与顶层设计。"
+    },
+    {
+      "slug": "esg",
+      "name": "ESG 与披露",
+      "group": "field",
+      "tags": [
+        "ESG"
+      ],
+      "definition": "ESG 与可持续信息披露：准则、监管要求、评级与上市公司实践的动态。"
+    },
+    {
+      "slug": "green-factory",
+      "name": "绿色工厂",
+      "group": "field",
+      "tags": [
+        "绿色工厂",
+        "绿色园区",
+        "名单公示"
+      ],
+      "definition": "绿色制造体系的核心载体：绿色工厂与绿色园区的名单公示、申报通知、评价指标与梯度培育。"
+    },
+    {
+      "slug": "green-supply-chain",
+      "name": "绿色供应链",
+      "group": "field",
+      "tags": [
+        "绿色供应链"
+      ],
+      "definition": "绿色供应链管理企业的一切：名单公示、评价要求与链主企业的带动实践。"
+    },
+    {
+      "slug": "smart-zero-factory",
+      "name": "智能与零碳工厂",
+      "group": "field",
+      "tags": [
+        "智能工厂",
+        "零碳工厂",
+        "能效"
+      ],
+      "definition": "智能工厂、零碳工厂与能效标杆：评价公示、申报通知与标准建设的动态。"
+    },
+    {
+      "slug": "air",
+      "name": "大气治理",
+      "group": "field",
+      "tags": [
+        "大气治理"
+      ],
+      "definition": "蓝天保卫战的一切：PM2.5 与臭氧协同控制、VOCs 治理、超低排放改造与重污染应对。"
+    },
+    {
+      "slug": "water",
+      "name": "水污染治理",
+      "group": "field",
+      "tags": [
+        "水污染治理",
+        "水务"
+      ],
+      "definition": "碧水保卫战的一切：流域治理、污水处理、黑臭水体与饮用水源保护的动态。"
+    },
+    {
+      "slug": "soil-groundwater",
+      "name": "土壤与地下水",
+      "group": "field",
+      "tags": [
+        "土壤与地下水",
+        "生态修复"
+      ],
+      "definition": "净土保卫战的一切：土壤污染防控、地下水管理、修复技术与场地管理的动态。"
+    },
+    {
+      "slug": "solid-waste",
+      "name": "固废与危废",
+      "group": "field",
+      "tags": [
+        "固废危废",
+        "危废处置",
+        "垃圾焚烧",
+        "循环经济"
+      ],
+      "definition": "固废与危废的一切：垃圾焚烧、危废处置、资源循环利用与无废城市建设的动态。"
+    },
+    {
+      "slug": "new-pollutants",
+      "name": "新污染物",
+      "group": "field",
+      "tags": [
+        "新污染物"
+      ],
+      "definition": "新污染物治理的一切：管控清单、筛查监测、禁限用政策与行业影响的动态。"
+    },
+    {
+      "slug": "eia-permit",
+      "name": "环评与排污许可",
+      "group": "field",
+      "tags": [
+        "环评",
+        "排污许可"
+      ],
+      "definition": "准入与许可的一切：环评改革、排污许可管理、审批公示与执法衔接的动态。"
+    },
+    {
+      "slug": "inspection",
+      "name": "环保督察",
+      "group": "field",
+      "tags": [
+        "环保督察"
+      ],
+      "definition": "中央与省级生态环保督察的一切：进驻、反馈、问责与典型案例通报。"
+    },
+    {
+      "slug": "monitoring",
+      "name": "环境监测",
+      "group": "field",
+      "tags": [
+        "环境监测",
+        "环境质量"
+      ],
+      "definition": "环境监测的一切：质量状况发布、监测规范、数据弄虚作假查处与监测市场的动态。"
+    },
+    {
+      "slug": "emergency",
+      "name": "环境应急",
+      "group": "field",
+      "tags": [
+        "环境应急"
+      ],
+      "definition": "环境应急的一切：突发环境事件、应急预案、危化品与尾矿库风险的动态。"
+    },
+    {
+      "slug": "env-equipment",
+      "name": "环保装备",
+      "group": "field",
+      "tags": [
+        "环保装备"
+      ],
+      "definition": "环保装备与技术的一切：装备推广目录、技术认定、产品发布与市场格局的动态。"
+    },
+    {
+      "slug": "standards",
+      "name": "标准发布",
+      "group": "genre",
+      "tags": [
+        "标准规范"
+      ],
+      "definition": "新标准的第一时间记录：GB、HJ、地方标准与团体标准的发布、修订、实施与征求意见。"
+    },
+    {
+      "slug": "penalties",
+      "name": "处罚与督察",
+      "group": "genre",
+      "tags": [
+        "执法督察",
+        "环保督察"
+      ],
+      "definition": "监管的锋刃：处罚通报、典型案例、按日计罚、移送拘留与督察问责的持续记录。"
+    },
+    {
+      "slug": "announcements",
+      "name": "名单公示",
+      "group": "genre",
+      "tags": [
+        "名单公示",
+        "绿色制造"
+      ],
+      "definition": "各类名单与公示：绿色制造名单、能效标杆、示范试点与专项资金的申报和公示。"
+    },
+    {
+      "slug": "policies",
+      "name": "政策法规",
+      "group": "genre",
+      "tags": [
+        "政策法规"
+      ],
+      "definition": "政策的风向：法律法规、部门规章、规划方案与征求意见稿的发布记录。"
+    },
+    {
+      "slug": "insights",
+      "name": "政策解读",
+      "group": "genre",
+      "tags": [
+        "解读观点"
+      ],
+      "definition": "读懂政策：律所、咨询机构与行业媒体对政策、标准与执法的解读和合规建议。"
+    }
+  ]
+}
