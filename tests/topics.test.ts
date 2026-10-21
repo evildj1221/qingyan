@@ -99,7 +99,7 @@ test("a company topic takes the articles about it, not the ones that only mentio
   const pact = await report({ at: hoursAgo(35), title: `二十余家科技公司签署安全协议 ${T}`, subjects: ["mee", "ndrc", "ndrc"] });
   const metadata = await report({ at: hoursAgo(36), title: `生态环境部 标准发布，miit 参与 ${T}`, subjects: ["miit", "mee"] });
   const adjacent = await report({ at: hoursAgo(37), title: `发布 工信部 的新标准 ${T}`, subjects: ["miit", "mee"] });
-  const headline = await report({ at: hoursAgo(38), title: `国家发改委 被一篇盘点提到 ${T}`, subjects: ["ceb-env"] });
+  const headline = await report({ at: hoursAgo(38), title: `国家发改委 被一篇盘点提到 ${T}`, subjects: ["samr"] });
   const agent = await report({ at: hoursAgo(39), title: `智能体框架发布 ${T}`, tags: ["碳市场"] });
 
   const anthropic = await members("ndrc");
@@ -143,11 +143,11 @@ test("withdrawn articles stay out of lists and counts", async () => {
 });
 
 test("every topic has a page; unknown topics and pages past the end have none", async () => {
-  const empty = await page("miit");
+  const empty = await page("cneeex");
   assert.equal(empty.topic.indexable, false, "a topic without content is not indexed");
   assert.deepEqual(empty.items, []);
   assert.equal(await loadTopicPage("not-a-topic", 1, new Date()), null);
-  assert.equal(await loadTopicPage("miit", 2, new Date()), null);
+  assert.equal(await loadTopicPage("cneeex", 2, new Date()), null);
   const index = await app.inject({ method: "GET", url: "/api/site/topics" });
   const body = JSON.parse(index.body) as { groups: Array<{ key: string }>; topics: Array<{ slug: string }> };
   assert.deepEqual(body.groups.map((g) => g.key), ["province", "company", "field", "genre"]);

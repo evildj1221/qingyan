@@ -17,9 +17,9 @@ test("llms and sitemap build from current topic scope rather than a cached direc
   for (let i = 0; i < 20; i++) {
     const id = `${source}-${i}`;
     await sql`INSERT INTO articles (id,source_id,identity_key,url,title,timeline_at,discovered_at)
-      VALUES (${id},${source},${id},${`https://example.org/${id}`},'MiniMax',now(),now())`;
+      VALUES (${id},${source},${id},${`https://example.org/${id}`},'中国环保产业协会',now(),now())`;
     await sql`INSERT INTO publications (article_id,source_id,title,summary,url,timeline_at,discovered_at,sort_at,selected,eligible,visible_after,tags,channel,category)
-      VALUES (${id},${source},'MiniMax 发布标准','Summary',${`https://example.org/${id}`},now(),now(),now(),true,true,now() - interval '1 minute',ARRAY['entity:minimax'],'news','policy')`;
+      VALUES (${id},${source},'中国环保产业协会 发布标准','Summary',${`https://example.org/${id}`},now(),now(),now(),true,true,now() - interval '1 minute',ARRAY['entity:caepi'],'news','policy')`;
   }
   assert.equal((await topicPageCounts()).find((topic) => topic.slug === "caepi")!.indexable, true);
   await sql`UPDATE publications SET visibility = 'withdrawn' WHERE source_id = ${source}`;

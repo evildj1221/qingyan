@@ -408,6 +408,75 @@
       ]
     },
     {
+      "slug": "caepi",
+      "name": "中国环保产业协会",
+      "group": "company",
+      "entityId": "caepi",
+      "aliases": [
+        "中国环境保护产业协会"
+      ],
+      "definition": "中国环保产业协会的动态：行业数据、技术目录、产业政策与市场格局。"
+    },
+    {
+      "slug": "cenenw",
+      "name": "中国环境报",
+      "group": "company",
+      "entityId": "cenenw",
+      "aliases": [
+        "中国环境网"
+      ],
+      "definition": "中国环境报的报道：环保行业权威媒体的深度报道与行业观察。"
+    },
+    {
+      "slug": "samr",
+      "name": "市场监管总局",
+      "group": "company",
+      "entityId": "samr",
+      "aliases": [
+        "国家市场监督管理总局",
+        "国家标准委",
+        "国家标准化管理委员会"
+      ],
+      "definition": "市场监管总局的动态：国标发布、认证认可、绿色产品认证与计量管理。"
+    },
+    {
+      "slug": "mem",
+      "name": "应急管理部",
+      "group": "company",
+      "entityId": "mem",
+      "aliases": [
+        "中华人民共和国应急管理部"
+      ],
+      "definition": "应急管理部的动态：危化品安全监管、生产安全事故调查与应急救援。"
+    },
+    {
+      "slug": "sanfeng-env",
+      "name": "三峰环境",
+      "group": "company",
+      "entityId": "sanfeng",
+      "definition": "三峰环境的动态：垃圾焚烧发电项目的拓展与经营进展。"
+    },
+    {
+      "slug": "yingfeng-env",
+      "name": "盈峰环境",
+      "group": "company",
+      "entityId": "yingfeng",
+      "aliases": [
+        "盈峰中联"
+      ],
+      "definition": "盈峰环境的动态：环卫装备与固废业务的拓展和经营进展。"
+    },
+    {
+      "slug": "longking-env",
+      "name": "龙净环保",
+      "group": "company",
+      "entityId": "longking",
+      "aliases": [
+        "福建龙净环保"
+      ],
+      "definition": "龙净环保的动态：大气治理装备与新能源业务的拓展和经营进展。"
+    },
+    {
       "slug": "carbon-market",
       "name": "碳市场与CCER",
       "group": "field",
