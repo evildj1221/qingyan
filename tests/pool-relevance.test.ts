@@ -17,7 +17,7 @@ before(async () => {
 });
 
 async function add(suffix: string, direct: string, body: string, options: {
-  title?: string; age?: number; channel?: "news" | "x"; category?: "policy" | "paper"; tags?: string[];
+  title?: string; age?: number; channel?: "news" | "x"; category?: "policy" | "ecology" | "standard" | "industry"; tags?: string[];
   visibility?: string; eligible?: boolean; future?: boolean; noSearchRow?: boolean;
 } = {}) {
   const at = new Date(+now - (options.age ?? 60) * 1000);
