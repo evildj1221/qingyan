@@ -590,6 +590,151 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "miit-zcwj",
+      "name": "工业和信息化部·政策文件",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.miit.gov.cn/index.html",
+        "parseMode": "html",
+        "itemSelector": "li",
+        "linkSelector": "a[href*='art/']",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://www.miit.gov.cn/zwgk/zcwj/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "miit",
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "官方",
+        "部委"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "miit-wjgs",
+      "name": "工业和信息化部·文件公示",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.miit.gov.cn/index.html",
+        "parseMode": "html",
+        "itemSelector": "li",
+        "linkSelector": "a[href*='art/']",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://www.miit.gov.cn/zwgk/wjgs/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "miit",
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "官方",
+        "公示"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "miit-zcjd",
+      "name": "工业和信息化部·政策解读",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.miit.gov.cn/index.html",
+        "parseMode": "html",
+        "itemSelector": "li",
+        "linkSelector": "a[href*='art/']",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://www.miit.gov.cn/zwgk/zcjd/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "miit",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "解读"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "miit-sjdt",
+      "name": "工业和信息化部·司局动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.miit.gov.cn/index.html",
+        "parseMode": "html",
+        "itemSelector": "li",
+        "linkSelector": "a[href*='art/']",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://www.miit.gov.cn/xwfb/gxdt/sjdt/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "miit",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "部委"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "miit-yjzj",
+      "name": "工业和信息化部·意见征集",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.miit.gov.cn/index.html",
+        "parseMode": "html",
+        "itemSelector": "li, p",
+        "linkSelector": "a[href*='art/']",
+        "titleSelector": "a",
+        "publishedAtSelector": "span",
+        "allowUrlPrefixes": [
+          "https://www.miit.gov.cn/gzcy/yjzj/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T1",
+      "owner_entity_id": "miit",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": [
+        "官方",
+        "征求意见"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }
