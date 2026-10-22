@@ -312,12 +312,16 @@ export async function composeDueReports(now = new Date(), limit = 8): Promise<{ 
   kinds: for (const k of kinds) {
     const have = new Set((await sql<{ key: string }[]>`SELECT key FROM reports WHERE kind = ${k.kind}`).map((r) => r.key));
     const first = [...have].sort()[0] ?? k.due;
+    // The budget counts issues with content: quiet issues and the void issues of unfillable gaps are a
+    // couple of queries each, and a run of gap-filling must not push the real next issue to a later run.
+    let substantive = 0;
     for (let key = first; key <= k.due; key = k.next(key)) {
       if (have.has(key)) continue;
-      if (shutdownSignal.signal.aborted || generated.length >= limit) break kinds;
+      if (shutdownSignal.signal.aborted || substantive >= limit) break kinds;
       try {
-        await k.compose(key);
+        const out = await k.compose(key) as { entries?: number };
         generated.push(`${k.kind}:${key}`);
+        if ((out?.entries ?? 1) !== 0) substantive += 1;
       } catch (error) {
         failed.push(`${k.kind}:${key}`);
         console.error(JSON.stringify({ level: "error", msg: "report failed", report: `${k.kind}:${key}`, error: logError(error) }));

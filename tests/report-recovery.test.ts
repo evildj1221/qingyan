@@ -75,14 +75,31 @@ test("report publication and its receipt commit together and recovery reuses the
   assert.equal((await sql`SELECT status FROM receipts WHERE subject = 'report:weekly:2024-W18'`)[0]!.status, "completed");
 });
 
-test("empty older gaps cannot starve a later daily, weekly or monthly, and failures remain visible", async () => {
-  // An older issue carried an item; the days after it are empty. Weeklies and monthlies are compiled from dailies.
+test("empty older gaps cannot starve a later daily, weekly or monthly — the gaps publish as quiet issues", async () => {
+  // An older issue carried an item; the days after it are empty and, long past with no articles in them,
+  // can never fill. Each gap publishes as the quiet issue it would have been; the later issues still recover.
   const early = await item("2024-01-23");
   await sql`INSERT INTO reports (kind, key, window_start, window_end, content, generated_at)
     VALUES ('daily', '2024-01-23', now(), now(), ${sql.json({ sections: [{ label: "行业动态", items: [{ itemId: early, title: early }] }] })}, now())`;
   await item("2024-02-02");
-  await assert.rejects(composeDueReports(editionAt("daily", "2024-02-02", 3600)), /reports:/);
-  for (const [kind, key] of [["daily", "2024-02-02"], ["weekly", "2024-W04"], ["monthly", "2024-01"]]) {
+  const res = await composeDueReports(editionAt("daily", "2024-02-02", 3600));
+  assert.deepEqual(res.failed, []);
+  for (const [kind, key] of [["daily", "2024-01-24"], ["daily", "2024-02-02"], ["weekly", "2024-W04"], ["monthly", "2024-01"]]) {
     assert.ok(await report(kind!, key!), `${kind} ${key} was recovered past the empty gaps`);
   }
+});
+
+test("a gap whose article is still unjudged stays a visible failure and cannot starve later issues", async () => {
+  // The 03-25 window holds an article nobody judged yet: backfill may still reach it, so that gap refuses
+  // a quiet issue and the run's failure stays visible — while the later issue recovers in the same run.
+  const early = await item("2024-03-23");
+  await sql`INSERT INTO reports (kind, key, window_start, window_end, content, generated_at)
+    VALUES ('daily', '2024-03-23', now(), now(), ${sql.json({ sections: [{ label: "行业动态", items: [{ itemId: early, title: early }] }] })}, now())`;
+  const unjudged = `recovery-unjudged-${tag()}`;
+  const at = editionAt("daily", "2024-03-25", -12 * 3600);
+  await sql`INSERT INTO articles (id, source_id, identity_key, url, title, discovered_at, timeline_at)
+    VALUES (${unjudged}, ${SOURCE}, ${unjudged}, 'https://example.com/report', ${unjudged}, ${at}, ${at})`;
+  await item("2024-04-02");
+  await assert.rejects(composeDueReports(editionAt("daily", "2024-04-02", 3600)), /reports:/);
+  assert.ok(await report("daily", "2024-04-02"), "the later daily recovered past the failing gap");
 });
