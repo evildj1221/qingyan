@@ -10,10 +10,9 @@ const PASS = process.env.WEMPRSS_PASS ?? "admin@123";
 const INGEST = process.env.AIHOT_INGEST ?? "http://api:3001/api/ingest/items";
 const TOKEN = process.env.INGEST_TOKEN ?? "";
 const INTERVAL_MIN = Number(process.env.INTERVAL_MIN ?? 10);
-// wr_skey 是短命的会话 Cookie：微信读书网页版靠定期调续期接口保活，采集端只用不续，
-// 一两天就过期、只能人工重扫。这里按固定节律续期，并把轮换后的 Cookie 写回 we-mp-rss。
-const WEREAD_RENEW_MIN = Number(process.env.WEREAD_RENEW_MIN ?? 360);
-const WEREAD_UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
+// __noBody 里正文始终没到的条目按发布时间淘汰：JS 空壳文章大多永远拿不到正文，
+// 无限重试只会让每轮背 400+ 次无效请求。
+const NOBODY_TTL_MS = Number(process.env.NOBODY_TTL_DAYS ?? 14) * 24 * 3600_000;
 const STATE_FILE = new URL("./state.json", import.meta.url);
 
 let token = "";
@@ -41,42 +40,6 @@ async function login() {
   const json = await res.json();
   token = json?.data?.access_token ?? "";
   if (!token) throw new Error("登录失败: " + JSON.stringify(json).slice(0, 120));
-}
-
-/** 把 Set-Cookie 的轮换对合并进旧 Cookie 串，旧串里没有的键保留原样。 */
-function mergeCookie(oldCookie, setCookies) {
-  const jar = new Map();
-  for (const part of oldCookie.split(";")) {
-    const at = part.indexOf("=");
-    if (at > 0) jar.set(part.slice(0, at).trim(), part.slice(at + 1).trim());
-  }
-  for (const sc of setCookies) {
-    const pair = sc.split(";")[0];
-    const at = pair.indexOf("=");
-    if (at > 0) jar.set(pair.slice(0, at).trim(), pair.slice(at + 1).trim());
-  }
-  return [...jar].map(([k, v]) => `${k}=${v}`).join("; ");
-}
-
-async function renewWeread() {
-  try {
-    const st = (await j("GET", "/api/v1/wx/weread"))?.data ?? {};
-    const cookie = String(st.cookie ?? "").trim();
-    if (!cookie) { console.log("[bridge] 微信读书续期跳过：无 Cookie"); return; }
-    const res = await fetch("https://weread.qq.com/web/login/renewal", {
-      method: "POST",
-      headers: { "content-type": "application/json", cookie, referer: "https://weread.qq.com/web/reader/", "user-agent": WEREAD_UA },
-      body: "{}",
-    });
-    const text = await res.text();
-    const rotated = typeof res.headers.getSetCookie === "function" ? res.headers.getSetCookie() : [];
-    const merged = mergeCookie(cookie, rotated);
-    if (merged !== cookie) await j("POST", "/api/v1/wx/weread/cookie", { cookie: merged });
-    const ok = res.ok && text.includes('"succ"');
-    console.log(`[bridge] 微信读书续期：${ok ? "成功" : `异常 HTTP ${res.status}`}（${rotated.length ? "Cookie 已轮换并写回" : "本轮无轮换"}）`);
-  } catch (e) {
-    console.log("[bridge] 微信读书续期失败:", e.message);
-  }
 }
 
 async function mps() {
@@ -113,11 +76,6 @@ async function bodyOf(articleId) {
 
 async function sync() {
   if (!token) { await login(); console.log("[bridge] 已登录 we-mp-rss"); }
-  if (Date.now() - (state.__wereadRenewedAt ?? 0) >= WEREAD_RENEW_MIN * 60_000) {
-    await renewWeread();
-    state.__wereadRenewedAt = Date.now();
-    writeFileSync(STATE_FILE, JSON.stringify(state));
-  }
   const list = await mps();
   const noBody = (state.__noBody ?? {});
   let pushed = 0;
@@ -164,9 +122,11 @@ async function sync() {
     await new Promise((r) => setTimeout(r, 6000)); // 避开推送接口限流
   }
 
-  // 补推：之前没正文、现在抓到了的
+  // 补推：之前没正文、现在抓到了的；超过 TTL 的条目直接淘汰（等不来的）
   let backfilled = 0;
+  const now = Date.now();
   for (const [id, rec] of Object.entries(noBody)) {
+    if (now - rec.t > NOBODY_TTL_MS) { delete noBody[id]; continue; }
     const body = await bodyOf(rec.id);
     if (!body) continue;
     try {
