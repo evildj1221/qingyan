@@ -94,7 +94,7 @@ async function weMpCall(path: string, method: "GET" | "POST" = "GET", body?: unk
   return json as never;
 }
 
-/** 读书 Cookie 健康探测：调一次书架接口（轻量）。异常 = Cookie 失效，采集即将停摆。 */
+/** 读书 Cookie 健康探测：走采集主链路验证凭据（轻量）。异常 = Cookie 失效，采集即将停摆。 */
 async function wereadCookieAlive(): Promise<boolean> {
   const login = (await fetch(`${WEMPRSS_BASE}/api/v1/wx/auth/login`, {
     method: "POST",
@@ -104,10 +104,11 @@ async function wereadCookieAlive(): Promise<boolean> {
   }).then((r) => r.json())) as { data?: { access_token?: string } };
   const token = login?.data?.access_token ?? "";
   if (!token) throw new Error("we-mp-rss 登录失败");
-  // 书架接口是最轻量的鉴权探测：失败（含业务码非 0）即视为 Cookie 失效。
+  // 探测走采集主链路（/weread/mp/test → /api/mp/cover）。书架接口（/web/shelf/sync）是
+  // 旧接口，易被微信读书风控误伤且与采集可用性无关，曾造成大量"Cookie 已失效"误报。
   let ok = false;
   for (let attempt = 0; attempt < 2 && !ok; attempt += 1) {
-    ok = await weMpCall("/api/v1/wx/weread/bookshelf", "POST", {}, token).then(() => true, () => false);
+    ok = await weMpCall("/api/v1/wx/weread/mp/test", "POST", {}, token).then(() => true, () => false);
     if (!ok && attempt === 0) await new Promise((r) => setTimeout(r, 3000));
   }
   return ok;
