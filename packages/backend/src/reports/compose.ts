@@ -93,11 +93,14 @@ export async function composeDaily(date: string, reason?: string): Promise<{ key
   const start = new Date(end.getTime() - 86400000);
   const edition = await dailyEdition(date, start, end);
   // Nothing judged in the window is a failure upstream, not a quiet day: the run fails and is caught up later.
-  // But a window that ended days ago without a single article in it can never fill (data lost, or from before
-  // the site collected anything): retrying it every run only spamming failures — publish the quiet issue instead.
+  // But a window that ended days ago can be past saving: no articles in it at all (data lost, or from before
+  // the site collected anything), or every article long judged with nothing published (the early era) — no
+  // backfill will ever change either, so retrying every run only spamming failures. Publish the quiet issue.
   if (edition.entries.length === 0 && edition.stats.judgedReports === 0) {
-    const [anyArticle] = await sql<{ n: number }[]>`SELECT count(*) AS n FROM articles WHERE timeline_at >= ${start} AND timeline_at < ${end}`;
-    const hopeless = Date.now() - end.getTime() > 48 * 3600_000 && Number(anyArticle?.n ?? 0) === 0;
+    const [pending] = await sql<{ n: number }[]>`
+      SELECT count(*) FILTER (WHERE NOT EXISTS (SELECT 1 FROM analyses a WHERE a.article_id = ar.id))::int AS n
+      FROM articles ar WHERE ar.timeline_at >= ${start} AND ar.timeline_at < ${end}`;
+    const hopeless = Date.now() - end.getTime() > 48 * 3600_000 && Number(pending?.n ?? 0) === 0;
     if (!hopeless) throw new Error(`daily ${date}: nothing judged in its window`);
   }
   const issue = arrangeDaily(edition.entries);
