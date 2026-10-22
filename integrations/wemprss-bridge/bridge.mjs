@@ -12,11 +12,12 @@ const TOKEN = process.env.INGEST_TOKEN ?? "";
 const INTERVAL_MIN = Number(process.env.INTERVAL_MIN ?? 10);
 // __noBody 里正文始终没到的条目按发布时间淘汰：JS 空壳文章大多永远拿不到正文，
 // 无限重试只会让每轮背 400+ 次无效请求。
-const NOBODY_TTL_MS = Number(process.env.NOBODY_TTL_DAYS ?? 14) * 24 * 3600_000;
+const NOBODY_TTL_MS = Number(process.env.NOBODY_TTL_DAYS ?? 7) * 24 * 3600_000;
 const STATE_FILE = new URL("./state.json", import.meta.url);
 
 let token = "";
 const state = existsSync(STATE_FILE) ? JSON.parse(readFileSync(STATE_FILE, "utf8")) : {};
+delete state.__wereadRenewedAt; // 已废弃的续期机制遗留键（2026-10-23 移除）
 
 async function j(method, path, body, headers = {}) {
   const res = await fetch(BASE + path, {
