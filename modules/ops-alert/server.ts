@@ -156,14 +156,6 @@ async function runChecks(): Promise<{ fired: number }> {
   } catch (e) {
     console.log(`[ops-alert] 读书 Cookie 探测失败: ${String(e).slice(0, 80)}`);
   }
-  // 凭据健康提前预警：读书 Cookie 失效（采集将停摆）/ 平台 Token 失效（无法搜索加新源）
-  try {
-    if (!(await wereadCookieAlive())) {
-      findings.push({ key: "weread-cookie", subject: `🚨 ${SITE.name}：微信读书 Cookie 已失效`, text: `公众号采集的读书 Cookie 已失效，公众号通道即将停摆。\n解决：打开 we-mp-rss 面板 → 微信读书授权 → 重新扫码（约 30 秒）。` });
-    }
-  } catch (e) {
-    console.log(`[ops-alert] 读书 Cookie 探测失败: ${String(e).slice(0, 80)}`);
-  }
   if (process.env.OPS_PROBE_MP_TOKEN === "1") {
     try {
       if (!(await platformTokenAlive())) {
@@ -172,6 +164,23 @@ async function runChecks(): Promise<{ fired: number }> {
     } catch (e) {
       console.log(`[ops-alert] 平台 Token 探测失败: ${String(e).slice(0, 80)}`);
     }
+  }
+
+  // 引擎告警兜底：引擎自身的告警（日报缺口、备份滞后、模型熔断等）只发飞书——未配飞书时全部静默。
+  // alerts.state 里的条目即"仍在生效"的引擎告警（恢复时会被移除），转成邮件，12h 去重同其余体检项。
+  try {
+    const [row] = await sql<{ value: Record<string, { title?: string; since?: string }> }[]>`SELECT value FROM settings WHERE key = 'alerts.state'`;
+    for (const [key, alert] of Object.entries(row?.value ?? {})) {
+      if (!alert?.title) continue;
+      const since = Date.parse(alert.since ?? "");
+      findings.push({
+        key: `engine:${key}`,
+        subject: `⚠️ ${SITE.name}：${alert.title}`,
+        text: `引擎告警（只发飞书，此处为邮件兜底）${Number.isFinite(since) ? `，自 ${new Date(since).toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })} 起` : ""}。\n详见后台"运行"页与引擎日志。`,
+      });
+    }
+  } catch (e) {
+    console.log(`[ops-alert] 引擎告警读取失败: ${String(e).slice(0, 80)}`);
   }
 
   await sql`INSERT INTO ops_alert_state (singleton) VALUES (true) ON CONFLICT DO NOTHING`;

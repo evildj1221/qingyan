@@ -10,7 +10,7 @@ import { stopBoss } from "@aihot/backend/jobs/queue";
 import { publishArticle } from "@aihot/backend/publication/publish";
 import { loadReport } from "@aihot/backend/publication/reports";
 import { composeDaily, dueDaily, dueMonthly, dueWeekly } from "@aihot/backend/reports/compose";
-import { SITE } from "@aihot/site";
+import { REPORTS, SITE } from "@aihot/site";
 
 const T = tag();
 const SOURCE = `test-reports-${T}`;
@@ -36,6 +36,15 @@ test("a daily with nothing judged in its window is refused, not published as a q
   await assert.rejects(composeDaily(date), /nothing judged/);
   const [row] = await sql`SELECT 1 FROM reports WHERE kind = 'daily' AND key = ${date}`;
   assert.equal(row, undefined);
+});
+
+test("a long-past window without a single article publishes the quiet issue instead of retrying forever", async () => {
+  const date = "1999-12-31"; // 远早于任何夹具数据：窗口内必然零文章
+  const result = await composeDaily(date);
+  assert.equal(result.entries, 0);
+  const [row] = await sql<{ content: { lead: { title: string } } }[]>`SELECT content FROM reports WHERE kind = 'daily' AND key = ${date}`;
+  assert.ok(row, "the void window should have its quiet issue");
+  assert.equal(row.content.lead.title, REPORTS.quiet.title);
 });
 
 test("a weekly that froze no summaries shows the articles' public summaries", async () => {
